@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'drf_yasg',
-    'main'
+    'main',
+    'corsheaders',
 
 ]
 
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'sako.urls'
@@ -126,3 +128,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SWAGGER_LINK = os.environ.get('SWAGGER_LINK')
+
+CORS_ALLOW_ALL_ORIGINS = DEBUG
+CORS_ALLOW_CREDENTIALS = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    'https://innautomation.innowise-group.com',
+    'https://innautomation-stage.innowise-group.com',
+    'http://localhost:3000',
+    'http://0.0.0.0:8000',
+]

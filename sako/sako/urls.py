@@ -9,7 +9,7 @@ from core.swagger.swagger import schema_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/employee/', include('main.api.v1.urls')),
+    path('api/v1/', include('main.api.v1.urls')),
 ]
 
 if settings.DEBUG:
