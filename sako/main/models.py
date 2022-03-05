@@ -47,6 +47,7 @@ class Product(models.Model):
         upload_to=ModelMethods.get_upload_path,
         validators=[SizeValidators.image_size_validator],
     )
+    bestseller = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

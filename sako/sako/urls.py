@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path, re_path, include
 
@@ -6,11 +5,13 @@ from sako import settings
 
 from core.swagger.swagger import schema_view
 
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/v1/', include('main.api.v1.urls')),
-]
+                  path('admin/', admin.site.urls),
+                  path('api/v1/', include('main.api.v1.urls')),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
+                                                                                         document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     urlpatterns.extend((
