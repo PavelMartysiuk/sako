@@ -32,6 +32,8 @@ class ProductView(
     def get_queryset(self):
         if self.action == 'retrieve':
             return Product.objects.prefetch_related('product_logo')
+        elif self.action == 'list':
+            return Product.objects.select_related('manufactor')
         return Product.objects.all()
 
     def get_serializer_class(self):

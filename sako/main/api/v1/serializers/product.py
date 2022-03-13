@@ -4,6 +4,8 @@ from main.models import Product
 
 from main.api.v1.serializers.product_logo import ProductLogoSerializer
 
+from main.api.v1.serializers.manufactor import ManufactorSerializer
+
 
 class ProductDetailSerializer(serializers.ModelSerializer):
     product_logo = ProductLogoSerializer(many=True)
@@ -14,6 +16,8 @@ class ProductDetailSerializer(serializers.ModelSerializer):
 
 
 class ProductListSerializer(serializers.ModelSerializer):
+    manufactor = ManufactorSerializer()
+
     class Meta:
         model = Product
-        fields = ('main_logo', 'id', 'name')
+        fields = ('main_logo', 'id', 'name', 'manufactor')

@@ -38,7 +38,7 @@ class Category(models.Model):
 class Product(models.Model):
     #   image M2M
     name = models.CharField(max_length=50)
-    descrtiption = models.CharField(max_length=400)
+    descrtiption = models.TextField()#models.CharField(max_length=400)
     category = models.ForeignKey('Category', related_name='products', on_delete=models.CASCADE)
     manufactor = models.ForeignKey('Manufacturer', related_name='products', on_delete=models.CASCADE)
     availability = models.BooleanField()

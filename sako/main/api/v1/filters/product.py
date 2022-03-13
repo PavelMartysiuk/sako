@@ -16,6 +16,7 @@ class ProductFilter(filters.FilterSet):
         model = Product
         fields = (
             'category_ids',
-            'new',
-            'new',
+            'manufactor',
+            'availability',
+            'bestseller'
         )
